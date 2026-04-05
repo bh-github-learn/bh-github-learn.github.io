@@ -1206,7 +1206,7 @@ p {
 }
 
 .social-link:hover {
-  color: var(--accent-color);
+  color: white;
   background-color: var(--accent-color);
   border-color: var(--accent-color);
   transform: translateY(-3px);
