@@ -60,29 +60,7 @@
 <h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
 
 <p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-</div><!-- 初始化AI摘要--><script>document.addEventListener('DOMContentLoaded', function() {
-  if (typeof ChucklePostAI !== 'undefined') {
-    // 获取按钮文本，如果未定义则使用默认值
-    const buttons = [
-      "介绍自己",
-      "来点灵感",
-      "生成AI简介"
-    ];
-
-    new ChucklePostAI({
-      el: '#post-ai-container',
-      title_el: '.post-title',
-      summary_directly: false,
-      interface: {
-        name: "然-AI",
-        introduce: "我是文章辅助AI: 然-AI，一个基于deepseek的强大语言模型，有什么可以帮到您？😊",
-        version: "deepseekv3",
-        button: buttons
-      }
-    });
-  }
-});
-</script><!-- 传递TOC配置给前端--><script>// 创建全局TOC配置对象
+</div><!-- 初始化AI摘要--><!-- 传递TOC配置给前端--><script>// 创建全局TOC配置对象
 window.tocConfig = {
   empty_toc_behavior: "placeholder"
 };
@@ -137,7 +115,7 @@ window.tocConfig = {
 <script>window.theme = {
   features: {"dark_mode":true,"smooth_scroll":true,"back_to_top":true,"loading_animation":true},
   code_block: {"height_limit":200,"enable_folding":true,"max_height":"300px","show_lang":true},
-  ai_summary: {"enable":true,"api_key":"","summary_directly":false,"ai_name":"然-AI","ai_introduce":"我是文章辅助AI: 然-AI，一个基于deepseek的强大语言模型，有什么可以帮到您？😊","ai_version":"deepseekv3","buttons":["介绍自己","来点灵感","生成AI简介"]},
+  ai_summary: {"enable":false,"api_key":"","summary_directly":false,"ai_name":"AI","ai_introduce":"有什么可以帮到您？😊","ai_version":"deepseekv3","buttons":["介绍自己","来点灵感","生成AI简介"]},
   categories: {"layout":"accordion","accordion_animation":true,"show_empty_categories":true},
   article_list: {"card_size":"normal","view_mode":"modal"}
 };
