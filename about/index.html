@@ -132,6 +132,16 @@
   transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
   font-size: 1.1rem;
 }
+.timeline-marker-logo {
+  width: 25px;
+  height: 25px;
+  object-fit: contain;
+  display: block;
+  transition: filter 0.4s ease;
+}
+.timeline-item:hover .timeline-marker-huawei .timeline-marker-logo {
+  filter: brightness(0) invert(1);
+}
 .timeline-item:hover .timeline-marker {
   background: var(--accent-color, #ff6b6b);
   color: #fff;
@@ -341,7 +351,7 @@ body.dark-mode .nature-badge { background: #222; border-color: #333; box-shadow:
 body.dark-mode .nature-badge:hover { background: #2a2a2a; border-color: #555; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4); }
 body.dark-mode .nature-badge::before { background: linear-gradient(120deg, transparent, rgba(255,255,255,0.05), transparent); }
 body.dark-mode .nature-badge img { filter: invert(0.9) hue-rotate(180deg); }
-</style></div><div class="about-section"><h2>工作履历</h2><div class="profile-modern-container"><div class="experience-timeline"><div class="timeline-item"><div class="timeline-date">至今</div><div class="timeline-marker timeline-marker-huawei"><i class="fab fa-huawei"></i></div><div class="timeline-content"><div class="exp-header"><h3 class="exp-title">华为</h3><span class="exp-subtitle">工作经历</span></div></div></div></div></div></div><div class="about-section"><h2>兴趣点</h2><div class="bio-content"><div class="skills-list"><span class="skill-tag">摄影</span><span class="skill-tag">羽毛球</span><span class="skill-tag">油画</span><span class="skill-tag">设计</span><span class="skill-tag">代码</span><span class="skill-tag">哲学</span><span class="skill-tag">生活</span><span class="skill-tag">艺术</span><span class="skill-tag">运动</span><span class="skill-tag">创造</span><span class="skill-tag">游戏</span><span class="skill-tag">阅读</span><span class="skill-tag">骑行</span><span class="skill-tag">爬山</span><span class="skill-tag">长跑</span><span class="skill-tag">旅行</span></div></div></div><div class="about-section"><h2>自我介绍</h2><div class="bio-content" style="white-space: pre-wrap;"><p>这里是可以在 Markdown 中自由编写的自我介绍…</p>
+</style></div><div class="about-section"><h2>工作履历</h2><div class="profile-modern-container"><div class="experience-timeline"><div class="timeline-item"><div class="timeline-date">至今</div><div class="timeline-marker timeline-marker-huawei"><img class="timeline-marker-logo" src="/images/huawei.svg" alt="华为 Logo"></div><div class="timeline-content"><div class="exp-header"><h3 class="exp-title">华为</h3><span class="exp-subtitle">工作经历</span></div></div></div></div></div></div><div class="about-section"><h2>兴趣点</h2><div class="bio-content"><div class="skills-list"><span class="skill-tag">摄影</span><span class="skill-tag">羽毛球</span><span class="skill-tag">油画</span><span class="skill-tag">设计</span><span class="skill-tag">代码</span><span class="skill-tag">哲学</span><span class="skill-tag">生活</span><span class="skill-tag">艺术</span><span class="skill-tag">运动</span><span class="skill-tag">创造</span><span class="skill-tag">游戏</span><span class="skill-tag">阅读</span><span class="skill-tag">骑行</span><span class="skill-tag">爬山</span><span class="skill-tag">长跑</span><span class="skill-tag">旅行</span></div></div></div><div class="about-section"><h2>自我介绍</h2><div class="bio-content" style="white-space: pre-wrap;"><p>这里是可以在 Markdown 中自由编写的自我介绍…</p>
 </div></div><div class="about-section"><h2>联系方式</h2><div class="contact-info"><a class="contact-item" href="https://github.com/bh-github-learn" target="_blank" rel="noopener"><i class="fab fa-github"></i><div><div class="contact-label">GitHub</div><div class="contact-value">github.com/bh-github-learn</div></div></a><a class="contact-item" href="https://scholar.google.com/citations?user=FPyvrOgAAAAJ&amp;hl=zh-CN" target="_blank" rel="noopener"><i class="fas fa-graduation-cap"></i><div><div class="contact-label">Google Scholar</div><div class="contact-value">Scholar Profile</div></div></a><a class="contact-item" href="/images/wechat-sph-qr.jpg" target="_blank" rel="noopener"><i class="fab fa-weixin"></i><div><div class="contact-label">微信视频号</div><div class="contact-value">扫码关注</div></div></a><a class="contact-item" href="mailto:1456491127@qq.com"><i class="fas fa-envelope"></i><div><div class="contact-label">Email</div><div class="contact-value">1456491127@qq.com</div></div></a></div></div></div></div></main><script>document.addEventListener('DOMContentLoaded', function() {
   const cards = document.querySelectorAll('.interest-card');
   
