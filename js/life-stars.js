@@ -168,8 +168,8 @@
       colors[index + 2] = color[2] * intensity;
       sizes[i] = sizeRange[0] + Math.pow(Math.random(), 5.0) * (sizeRange[1] - sizeRange[0]);
       phases[i] = Math.random() * Math.PI * 2;
-      twinkles[i] = 0.18 + Math.random() * 0.58;
-      pulseDepths[i] = Math.random() < 0.16 ? 0.08 + Math.random() * 0.06 : 0.025 + Math.random() * 0.045;
+      twinkles[i] = 0.08 + Math.pow(Math.random(), 2.0) * 0.24;
+      pulseDepths[i] = Math.random() < 0.12 ? 0.065 + Math.random() * 0.035 : 0.02 + Math.random() * 0.035;
     }
 
     var geometry = new THREE.BufferGeometry();
