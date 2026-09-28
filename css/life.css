@@ -1,0 +1,88 @@
+#life-starfield {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  background: #020308;
+}
+
+.life-page {
+  min-height: 100vh;
+  color: #eef3ff;
+  background: #020308;
+}
+
+.life-page #app {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+}
+
+.life-page .post-wrapper {
+  max-width: 100%;
+  min-height: calc(100vh - 5rem);
+  justify-content: center;
+  padding: 0 1.5rem;
+}
+
+.life-page .toc-sidebar {
+  display: none;
+}
+
+.life-page .post-container {
+  width: min(760px, 100%);
+  margin: 0;
+  padding: 10rem 3rem 5rem;
+  color: #eef3ff;
+  text-shadow: 0 1px 18px rgba(0, 0, 0, 0.85);
+}
+
+.life-page .post-header,
+.life-page .post-content {
+  position: relative;
+}
+
+.life-page .post-title {
+  color: #fff;
+  font-size: 3rem;
+  letter-spacing: 0;
+}
+
+.life-page .post-content {
+  color: rgba(235, 242, 255, 0.86);
+}
+
+.life-page .footer {
+  position: relative;
+  z-index: 1;
+  color: rgba(235, 242, 255, 0.75);
+  background: rgba(2, 3, 8, 0.58);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(8px);
+}
+
+.life-page .footer-copyright {
+  color: rgba(235, 242, 255, 0.72);
+}
+
+@media (max-width: 768px) {
+  .life-page .post-wrapper {
+    padding: 0 1.25rem;
+  }
+
+  .life-page .post-container {
+    padding: 8rem 0 4rem;
+  }
+
+  .life-page .post-title {
+    font-size: 2.25rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #life-starfield {
+    opacity: 0.9;
+  }
+}
