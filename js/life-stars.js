@@ -81,18 +81,21 @@
       '  float drift = uTime * 0.004;',
       '  vec2 q = vec2(fbm(uv * 1.35 + vec2(drift, 0.0)), fbm(uv * 1.35 + vec2(4.2, 1.7)));',
       '  float cloud = fbm(uv * 2.15 + q * 1.8);',
+      '  float cloudAlt = fbm(uv * 1.55 - q * 1.35 + vec2(-1.8, 2.4));',
       '  float dust = fbm(uv * 5.5 - q * 1.2);',
       '  float band = exp(-pow(abs(uv.y + uv.x * 0.19 + 0.07), 1.25) * 8.0);',
-      '  vec3 base = vec3(0.003, 0.006, 0.018);',
-      '  vec3 blue = vec3(0.025, 0.095, 0.20);',
-      '  vec3 violet = vec3(0.12, 0.045, 0.16);',
-      '  vec3 warm = vec3(0.16, 0.075, 0.035);',
+      '  vec3 base = vec3(0.004, 0.003, 0.020);',
+      '  vec3 blue = vec3(0.025, 0.105, 0.24);',
+      '  vec3 violet = vec3(0.18, 0.045, 0.30);',
+      '  vec3 rose = vec3(0.30, 0.035, 0.18);',
+      '  vec3 gold = vec3(0.28, 0.135, 0.025);',
       '  vec3 color = base;',
-      '  color += blue * smoothstep(0.43, 0.82, cloud) * 0.58;',
-      '  color += violet * smoothstep(0.55, 0.90, fbm(uv * 1.7 - q)) * 0.35;',
-      '  color += warm * band * smoothstep(0.45, 0.82, dust) * 0.20;',
-      '  color += vec3(0.045, 0.055, 0.08) * band * smoothstep(0.35, 0.78, cloud) * 0.48;',
-      '  color *= 0.72 + 0.28 * smoothstep(0.18, 0.9, length(uv));',
+      '  color += blue * smoothstep(0.40, 0.80, cloud) * 0.62;',
+      '  color += violet * smoothstep(0.48, 0.84, cloudAlt) * 0.54;',
+      '  color += rose * smoothstep(0.58, 0.88, cloud + cloudAlt * 0.34) * 0.43;',
+      '  color += gold * band * smoothstep(0.43, 0.80, dust) * 0.36;',
+      '  color += vec3(0.07, 0.075, 0.13) * band * smoothstep(0.32, 0.76, cloud) * 0.56;',
+      '  color *= 0.76 + 0.24 * smoothstep(0.18, 0.9, length(uv));',
       '  gl_FragColor = vec4(color, 1.0);',
       '}'
     ].join('\n')
@@ -102,13 +105,15 @@
   var starVertexShader = [
     'attribute float aSize;',
     'attribute float aPhase;',
+    'attribute float aTwinkle;',
+    'attribute float aPulseDepth;',
     'attribute vec3 aColor;',
     'uniform float uTime;',
     'varying vec3 vColor;',
     'varying float vGlow;',
     'void main() {',
     '  vec4 mvPosition = modelViewMatrix * vec4(position, 1.0);',
-    '  float pulse = 0.82 + 0.18 * sin(uTime * 1.7 + aPhase);',
+    '  float pulse = 1.0 + aPulseDepth * sin(uTime * aTwinkle + aPhase);',
     '  gl_PointSize = min(12.0, aSize * pulse * (250.0 / -mvPosition.z));',
     '  gl_Position = projectionMatrix * mvPosition;',
     '  vColor = aColor;',
@@ -143,6 +148,8 @@
     var colors = new Float32Array(count * 3);
     var sizes = new Float32Array(count);
     var phases = new Float32Array(count);
+    var twinkles = new Float32Array(count);
+    var pulseDepths = new Float32Array(count);
 
     for (var i = 0; i < count; i++) {
       var distance = radius * (0.36 + Math.pow(Math.random(), 0.42) * 0.64);
@@ -161,6 +168,8 @@
       colors[index + 2] = color[2] * intensity;
       sizes[i] = sizeRange[0] + Math.pow(Math.random(), 5.0) * (sizeRange[1] - sizeRange[0]);
       phases[i] = Math.random() * Math.PI * 2;
+      twinkles[i] = 0.18 + Math.random() * 0.58;
+      pulseDepths[i] = Math.random() < 0.16 ? 0.08 + Math.random() * 0.06 : 0.025 + Math.random() * 0.045;
     }
 
     var geometry = new THREE.BufferGeometry();
@@ -168,6 +177,8 @@
     geometry.setAttribute('aColor', new THREE.BufferAttribute(colors, 3));
     geometry.setAttribute('aSize', new THREE.BufferAttribute(sizes, 1));
     geometry.setAttribute('aPhase', new THREE.BufferAttribute(phases, 1));
+    geometry.setAttribute('aTwinkle', new THREE.BufferAttribute(twinkles, 1));
+    geometry.setAttribute('aPulseDepth', new THREE.BufferAttribute(pulseDepths, 1));
 
     var material = new THREE.ShaderMaterial({
       uniforms: { uTime: { value: 0 } },
